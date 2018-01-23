@@ -10,7 +10,7 @@ const io = require('socket.io')(server);
 
 app.use(express.static(__dirname + '/public'));
 app.get('/', function (req, res, next) {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/dashboard.html');
 });
 
 five.Board().on('ready', function () {
@@ -18,15 +18,25 @@ five.Board().on('ready', function () {
 
   // Initial state for the LED light
   let state = { red: 0, green: 0 };
+  let statusYellow = { status: false };
 
   // Map pins to digital inputs on the board --> PWM
   let ledRed = new five.Led(5);
   let ledGreen = new five.Led(3);
+  let ledYellow = new five.Led(8);
 
   // Helper function to set the colors
   let setStateBrightness = function (state) {
     ledRed.brightness(state.red);
     ledGreen.brightness(state.green);
+  };
+
+  let setStatusYellow = function (data) {
+    if (data.status == true) {
+      ledYellow.on();
+    } else {
+      ledYellow.off();
+    }
   };
 
   // Listen to the web socket connection
@@ -37,11 +47,14 @@ five.Board().on('ready', function () {
       Emite la informacion que ya está guardada en el servidor al cliente
       para posteriormente ponerla en los campos
       */
+      // NO USAR broadcast AQUÍ
       client.emit('defaultValues', state);
+      client.emit('defaultValuesYellow', statusYellow);
     });
 
     // Set initial state
     setStateBrightness(state);
+    setStatusYellow(statusYellow);
 
     // Listener brightness
     client.on('rgb', function (data) {
@@ -56,6 +69,20 @@ five.Board().on('ready', function () {
       setStateBrightness(state);
 
       client.broadcast.emit('rgb', data);
+    });
+
+    // Listener checkbox
+    client.on('yellow', function (data) {
+
+      statusYellow.status = data.status;
+
+      // Set the new colors
+      setStatusYellow(statusYellow);
+
+      // Imprime en consola el cambio efectuado
+      console.log(data);
+
+      client.broadcast.emit('yellow', data);
     });
 
     // Turn on the RGB LED

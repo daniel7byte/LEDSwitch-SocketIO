@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>LED Switch with Socket.IO</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <!-- Font Awesome 5 -->
+  <link href="./css/fontawesome-all.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo"><img id="logo" class="responsive-img" src="NodeBots.png" alt=""></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="http://nodebots.io/">NodeBots</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="http://nodebots.io/">NodeBots</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">LED Switch</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">This is my project with Socket.IO & Johnny Five</h5>
+        </div>
+        <div class="row center">
+          <a href="https://github.com/daniel7byte/LEDSwitch-SocketIO.git" id="download-button" class="btn-large waves-effect waves-light teal lighten-1"><i class="fab fa-github"></i> Go to GitHub</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="./arduino.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Dashboard</h4>
+          <form action="#">
+            <div class="row">
+              <div class="col s12">
+                <p class="range-field">
+                  <label for="red">PIN (~5)</label>
+                  <input id="red" type="range" min="0" max="255" step="1" value="0" class="active">
+                </p>
+              </div>
+              <div class="col s12">
+                <p class="range-field">
+                  <label for="green">PIN (~3)</label>
+                  <input id="green" type="range" min="0" max="255" step="1" value="0" class="active">
+                </p>
+              </div>
+              <div class="col s12">
+                <label for="red">PIN (8)</label>
+                <div class="switch">
+                 <label>
+                   Off
+                   <input id="yellow" type="checkbox">
+                   <span class="lever"></span>
+                   On
+                 </label>
+               </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="./daniel7byte.png"></div>
+  </div>
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l8 s12">
+          <h5 class="white-text">Author</h5>
+          <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="col l4 s12">
+          <h5 class="white-text">Social Networks</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://github.com/daniel7byte">Daniel7Byte</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- include the client socket library-->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="./js/materialize.min.js"></script>
+  <script src="./js/init.js"></script>
+
+  <!-- Client Socket.IO -->
+  <script src="./js/client.js"></script>
+
+  </body>
+</html>
