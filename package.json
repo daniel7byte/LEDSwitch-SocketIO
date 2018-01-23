@@ -1,0 +1,24 @@
+{
+  "name": "ledswitch-socketio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniel7byte/LEDSwitch-SocketIO.git"
+  },
+  "author": "Jose Daniel Posso Garcia (@daniel7byte)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daniel7byte/LEDSwitch-SocketIO/issues"
+  },
+  "homepage": "https://github.com/daniel7byte/LEDSwitch-SocketIO#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "johnny-five": "^0.13.0",
+    "socket.io": "^2.0.4"
+  }
+}
