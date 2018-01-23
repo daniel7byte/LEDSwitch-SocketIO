@@ -49,6 +49,9 @@ five.Board().on('ready', function () {
       state.red = data.color === 'red' ? data.value : state.red;
       state.green = data.color === 'green' ? data.value : state.green;
 
+      // Imprime en consola el cambio efectuado
+      console.log(data);
+
       // Set the new colors
       setStateBrightness(state);
 
