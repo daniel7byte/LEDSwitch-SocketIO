@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const five = require('johnny-five');
 const express = require('express');
